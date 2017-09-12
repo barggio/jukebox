@@ -6,5 +6,11 @@ pipeline {
         sh 'echo \'Starting\''
       }
     }
+    stage('Run test'){
+      steps {
+       sh 'do something here'
+      }
+    }
   }
+ 
 }

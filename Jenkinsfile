@@ -1,12 +1,13 @@
 pipeline {
   agent any
   stages {
-    stage('Initializing') {
+    stage('greeting') {
       steps {
-        sh 'echo \'Starting\''
+        sh '''echo "hello moon"
+'''
       }
     }
-    stage('Run test'){
+    stage('run test') {
       steps {
         sh '''docker-compose build
 docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
@@ -15,5 +16,4 @@ docker-compose run web ./scripts/setup.sh rails test
       }
     }
   }
- 
 }

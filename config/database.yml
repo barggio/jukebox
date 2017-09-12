@@ -17,7 +17,7 @@
 default: &default
   host: pg
   username: postgres
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  password: <%= ENV['PGPASSWORD'] %>
   template: template0
   adapter: postgresql
   encoding: unicode

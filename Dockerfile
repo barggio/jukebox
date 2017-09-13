@@ -2,7 +2,7 @@
 
 FROM ruby:2.4.1
 
-RUN apt-get update && apt-get install vim -y
+RUN apt-get update && apt-get install vim postgresql-client -y
 
 RUN gem install rails
 

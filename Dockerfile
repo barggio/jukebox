@@ -23,7 +23,6 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 #WORKDIR is like cd
 RUN bundle install
-RUN rails db:create && rails db:migrate
 
 EXPOSE 3333
 CMD ["rails", "server"]

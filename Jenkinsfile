@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    DOCKER_PASSWORD = credentials('DOCKER_HUB')
+    DOCKER_HUB = credentials('DOCKER_HUB')
   }  
   stages {
     stage('greeting') {
@@ -26,7 +26,6 @@ docker-compose run web ./scripts/setup.sh rails test
 '''
       }
     }
-
     stage('Build container') {
       steps {
         sh '''
@@ -42,5 +41,12 @@ docker-compose run web ./scripts/setup.sh rails test
 '''
       }
     }    
+    stage('deply to k8s') {
+      steps {
+        sh '''
+          envsubst < deployment.yaml | kubectl apply -f -
+'''
+      }
+    }
   }
 }

@@ -24,5 +24,9 @@ WORKDIR /usr/src/app
 #WORKDIR is like cd
 RUN bundle install
 
+ENV RAILS_SERVE_STATIC_FILES "true"
+ENV SECRET_KEY_BASE "02f9fc8d7b09ad8a103d79085077521431933a8596f72b890f8862714f4b33e06fd03eff7972f5515828531caaa7267674a2ae9724225af6aab8f7ed635c739e"
+RUN rails assets:clobber & rails assets:precompile
+
 EXPOSE 3333
 CMD ["rails", "server"]
